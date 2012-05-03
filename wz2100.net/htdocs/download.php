@@ -4,6 +4,8 @@ include_once(dirname(__FILE__).'/../lib/global.lib.php');
 // Loads the data for the "WARZONE" variable
 include_once(dirname(__FILE__).'/lib/warzone.inc.php');
 
+// Loads all info that should be easily edited
+include_once(dirname(__FILE__).'/lib/frag/downloads.php');
 
 ?>
 <!DOCTYPE html>
@@ -214,34 +216,16 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
       <h1>Latest stable version &ndash; <?php echo @$WARZONE['currentversion']['name']; ?></h1>
       <div class="content-box-margin" id="download-win">
         <h2>Windows</h2>
-        <p class="byline">
-          For Windows XP, Vista, or 7
-        </p>
+<?php wz_frag_win_version_stable(); ?>
         <div class="downloadbtn">
           <a href="<?php echo @$WARZONE['currentversion']['dl_win'] ?>"><em>Download</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name'] ?> <small>for Windows XP+ <sub><?php echo @$WARZONE['currentversion']['dl_win_size'] ?></sub></small></a>
           <small><?php echo @$WARZONE['currentversion']['dl_win_md5']; ?></small>
         </div>
         <div style="clear:both"></div>
         <h3 id="videos-win"><span>Videos</span></h3>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['hq'] ?>" class="betaversion"><em>Download videos</em> <strong>high quality</strong> <sub>921 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['std'] ?>" class="betaversion"><em>Download videos</em> <strong>standard quality</strong> <sub>545 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['lq'] ?>" class="betaversion"><em>Download videos</em> <strong>low quality</strong> <sub>162 MB</sub></a>
-        </div>
+<?php wz_frag_vid_buttons(); ?>
         <div style="clear:both"></div>
-        <p style="margin-top:1em">
-          <strong>Note:</strong> The installer will install these videos automatically. Follow these instructions only if the installer fails, or if you wish to install offline.
-        </p>
-        <p>
-          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>Program Files/Warzone 2100/sequences.wz</strong></code>.
-        </p>
-        <p>
-          <strong>Warning:</strong> If the file you downloaded is <code>sequences.zip</code>, please rename it to <code>sequences.wz</code> . <strong>DO NOT EXTRACT IT</strong>.
-        </p>
+<?php wz_frag_win_vidnotes(); ?>
       </div>
 
       <div class="content-box-margin" id="download-mac">
@@ -259,55 +243,23 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
           <a href="<?php echo @$WARZONE['currentversion']['dl_mac_novid'] ?>" class="betaversion"><em>Download no video</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name']; ?> <small>no videos</small> <small>for <?php echo @$WARZONE['currentversion']['dl_mac_version']; ?> <sub><?php echo @$WARZONE['currentversion']['dl_mac_novid_size']; ?></sub></small></a>
         </div>
         <div style="clear:both"></div>
-        <h3>Notes</h3>
-        <ol>
-          <li>You need X11 installed (should come by default since 10.5), which can be found on the install DVD.</li>
-          <li>If you have a Nvidia based Mac on 10.5.6-10.5.9, there is a bug that makes the game look wrong. To fix, upgrade to 10.6 or higher, or use <a href="http://www.insanelymac.com/forum/lofiversion/index.php/t132089.html">these custom Nvidia drivers</a>.</li>
-        </ol>
+<?php wz_frag_mac_notes(); ?>
         <h3 id="videos-mac"><span>Videos</span></h3>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['hq'] ?>" class="betaversion"><em>Download videos</em> <strong>high quality</strong> <sub>920 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['std'] ?>" class="betaversion"><em>Download videos</em> <strong>standard quality</strong> <sub>545 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['lq'] ?>" class="betaversion"><em>Download videos</em> <strong>low quality</strong> <sub>162 MB</sub></a>
-        </div>
+<?php wz_frag_vid_buttons(); ?>
         <div style="clear:both"></div>
-        <p style="margin-top:1em">
-          <strong>Note:</strong> The standard download comes with standard quality videos. If you wish, to make upgrades faster, you can download the no-video version and the videos separately, and install them using the instructions below.
-        </p>
-        <p>
-          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/Library/Application Support/Warzone 2100 2.3/sequences.wz</strong></code>
-        </p>
+<?php wz_frag_mac_vidnotes(); ?>
       </div>
 
       <div class="content-box-margin" id="download-src">
         <h2>Linux and other</h2>
-        <p class="byline">
-          For Linux, BSD, or other operating systems
-        </p>
-        <p>
-          Warzone is available in most distributions' repositories, although it may be out of date. The latest version can be downloaded here.
-        </p>
+<?php src_version_stable(); ?>
         <div class="downloadbtn">
           <a href="<?php echo @$WARZONE['currentversion']['dl_src'] ?>"><em>Download</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name']; ?> <small>Source code tarball <sub><?php echo @$WARZONE['currentversion']['dl_src_size']; ?></sub></small></a><?php echo @$WARZONE['currentversion']['dl_src_md5'] ?>
         </div>
         <div style="clear:both"></div>
-        <p>
-          For instructions, see <a href="<?php echo $protocol; ?>developer.wz2100.net/wiki/CompileGuideLinux">Linux Compile Guide</a>.
-        </p>
+<?php wz_frag_src_notes(); ?>
         <h3 id="videos-src"><span>Videos</span></h3>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['hq'] ?>" class="betaversion"><em>Download videos</em> <strong>high quality</strong> <sub>920 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['std'] ?>" class="betaversion"><em>Download videos</em> <strong>standard quality</strong> <sub>545 MB</sub></a>
-        </div>
-        <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['lq'] ?>" class="betaversion"><em>Download videos</em> <strong>low quality</strong> <sub>162 MB</sub></a>
-        </div>
+<?php wz_frag_vid_buttons(); ?>
         <div style="clear:both"></div>
         <p style="margin-top:1em">
           <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/.warzone2100-2.3/sequences.wz</strong></code>
@@ -384,24 +336,7 @@ document.write('<div class="content-box-margin" id="download-displayall"><p><a h
 //-->
 </script>
 
-      <div class="content-box">
-        <h2>System requirements</h2>
-        <p>These are approximate.</p>
-        <ul>
-          <li>At least 1 GHz CPU</li>
-          <li>At least 128 MB VRAM</li>
-          <li>OpenGL 1.4 (make sure you have the latest drivers installed)</li>
-          <li>At least 100 MB free RAM for the game</li>
-          <li>At least 100 MB HD space for the game, up to 600 MB extra for the standard videos</li>
-        </ul>
-        <p>Operating system - one of:</p>
-        <ul>
-          <li>Windows XP SP3 or higher</li>
-          <li>Mac OS X 10.4 or higher</li>
-          <li>Linux or BSD</li>
-          <li>You will most likely need the latest version of the drivers for your video card.</li>
-        </ul>
-      </div>
+<?php wz_frag_systemrecs_stable(); ?>
 
 <?php
 if (@$WARZONE['betaversion']['name'])
@@ -412,9 +347,7 @@ if (@$WARZONE['betaversion']['name'])
 
       <div class="content-box-margin" id="betadownload-win">
         <h2>Windows</h2>
-        <p class="byline">
-          For Windows XP, Vista, or 7
-        </p>
+<?php wz_frag_win_version_beta(); ?>
         <div class="downloadbtn">
           <a href="<?php echo @$WARZONE['betaversion']['dl_win'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name'] ?> <small>for Windows XP+ <sub><?php echo @$WARZONE['betaversion']['dl_win_size'] ?></sub></small></a>
           <small><?php echo @$WARZONE['betaversion']['dl_win_md5']; ?></small>
@@ -451,9 +384,7 @@ if (@$WARZONE['betaversion']['name'])
 
       <div class="content-box-margin" id="betadownload-src">
         <h2>Linux and other</h2>
-        <p class="byline">
-          For Linux, BSD, or other operating systems
-        </p>
+<?php wz_frag_src_version_beta(); ?>
         <div class="downloadbtn">
           <a href="<?php echo @$WARZONE['betaversion']['dl_src'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name']; ?> <small>Source code tarball <sub><?php echo @$WARZONE['betaversion']['dl_src_size']; ?></sub></small></a><?php echo @$WARZONE['betaversion']['dl_src_md5'] ?>
         </div>
@@ -492,17 +423,7 @@ document.write('<div class="content-box-margin" id="betadownload-displayall"><p>
 ?>
 
       <h1>Other versions</h1>
-      <div class="content-box-margin">
-        <p>Older versions of Warzone 2100 are available at <a href="https://sourceforge.net/projects/warzone2100/files/">our Sourceforge mirror</a>, and even older releases at <a href="http://download.gna.org/warzone/releases/">our GNA mirror</a>.</p>
-        <p>Experimental builds are available at <a href="<?php echo $protocol; ?>developer.wz2100.net/wiki/ExperimentalBuilds">the Experimental Builds wiki page.</a></p>
-      </div>
-      <div class="content-box-margin">
-        <h2>Git</h2>
-        <p>Our git repository is located at:</p>
-        <blockquote><p><code>git://github.com/Warzone2100/warzone2100.git</code></p></blockquote>
-        <p><a href="<?php echo $protocol; ?>developer.wz2100.net/browser/?rev=master">Browse repository online</a></p>
-        <p>For more development information, see <a href="<?php echo $protocol; ?>developer.wz2100.net/">Development</a></p>
-      </div>
+<?php wz_frag_old_versions(); ?>
     </div> 
 <?php print_footer(); ?>
   </div>
