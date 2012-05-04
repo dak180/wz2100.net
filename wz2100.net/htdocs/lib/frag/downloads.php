@@ -4,6 +4,12 @@
 
 
 <?php
+	// Variables
+$wz_frag_mjrver_stable = "2.3";
+?>
+
+
+<?php
 	// Windows Section
 
 function wz_frag_win_version_stable()
@@ -67,7 +73,7 @@ function wz_frag_mac_vidnotes()
           <strong>Note:</strong> The standard download comes with standard quality videos. If you wish, to make upgrades faster, you can download the no-video version and the videos separately, and install them using the instructions below.
         </p>
         <p>
-          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/Library/Application Support/Warzone 2100 2.3/sequences.wz</strong></code>
+          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/Library/Application Support/Warzone 2100 <?php echo $wz_frag_mjrver_stable; ?>/sequences.wz</strong></code>
         </p>
 <?php
 }
@@ -109,6 +115,16 @@ function wz_frag_src_notes()
         </p>
 <?php
 }
+
+function wz_frag_src_vidnotes()
+// Src vid install notes
+{
+?>
+        <p style="margin-top:1em">
+          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/.warzone2100-$wz_frag_mjrver_stable/sequences.wz</strong></code>
+        </p>
+<?php
+}
 ?>
 
 
@@ -129,6 +145,17 @@ function wz_frag_vid_buttons()
           <a href="<?php echo @$WARZONE['videos']['lq'] ?>" class="betaversion"><em>Download videos</em> <strong>low quality</strong> <sub><?php echo @$WARZONE['videos']['lq_size']; ?></sub></a>
         </div>
 <?php
+}
+
+function wz_frag_top_notes()
+// Topic notes section (only use header tags)
+{
+$wz_frag_top_notes_state = "on"; // if not set to on, will not display
+	if ($wz_frag_top_notes_state == "on") {
+?>
+		<h3>(Unsupported--try 3.1 beta instead!)</h3>
+<?php
+	}
 }
 
 function wz_frag_systemrecs_stable()

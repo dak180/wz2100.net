@@ -213,7 +213,11 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
 <?php
   }
 ?>
-      <h1>Latest stable version &ndash; <?php echo @$WARZONE['currentversion']['name']; ?></h1>
+	<hgroup>
+		<h1>Latest stable version &ndash; <?php echo @$WARZONE['currentversion']['name']; ?></h1>
+<?php wz_frag_top_notes(); ?>
+	<hgroup>
+
       <div class="content-box-margin" id="download-win">
         <h2>Windows</h2>
 <?php wz_frag_win_version_stable(); ?>
@@ -261,9 +265,7 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
         <h3 id="videos-src"><span>Videos</span></h3>
 <?php wz_frag_vid_buttons(); ?>
         <div style="clear:both"></div>
-        <p style="margin-top:1em">
-          <strong>Video instructions:</strong> Place <code>sequences.wz</code> in <code><strong>~/.warzone2100-2.3/sequences.wz</strong></code>
-        </p>
+<?php wz_frag_src_vidnotes(); ?>
       </div>
 
 <script>
