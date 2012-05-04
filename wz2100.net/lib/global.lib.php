@@ -6,7 +6,7 @@ include_once(dirname(__FILE__) . '/settings.inc.php');
 include_once(dirname(__FILE__) . '/persist.lib.php');
 
 // phpBB Session handler
-define('PHPBB_ROOT_PATH', dirname(__FILE__) . '/../forums.wz2100.net/htdocs/');
+define('PHPBB_ROOT_PATH', dirname(__FILE__) . '/../../forums.wz2100.net/htdocs/');
 define('IN_PHPBB', true);
 $phpbb_root_path = (defined('PHPBB_ROOT_PATH')) ? PHPBB_ROOT_PATH : './';
 $phpEx = 'php';

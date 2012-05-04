@@ -86,6 +86,23 @@ p
 	border-bottom: 1px solid #001040;
 }
 
+hgroup
+{
+	border-bottom: 2px solid #8899DD;
+	padding: 2px 0;
+	margin-top: 0.7em;
+}
+
+.warzone-content hgroup h1,
+.warzone-content hgroup h2,
+.warzone-content hgroup h3
+{
+	border-bottom: 0;
+	padding: 1px 0;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
 h1
 {
 	border-bottom: 2px solid #8899DD;
