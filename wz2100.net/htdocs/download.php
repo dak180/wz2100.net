@@ -126,7 +126,8 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
         <p>
           <label for="dl_win">URL: </label><input id="dl_win" name="dl_win" type="text" class="textbox" size="70" value="<?php echo @$WARZONE['currentversion']['dl_win']; ?>" /><br />
           <label for="dl_win_size">Size: </label><input id="dl_win_size" name="dl_win_size" type="text" class="textbox" size="10" value="<?php echo @$WARZONE['currentversion']['dl_win_size']; ?>" />
-          <label for="dl_win_md5">MD5: </label><input id="dl_win_md5" name="dl_win_md5" type="text" class="textbox" size="33" value="<?php echo @$WARZONE['currentversion']['dl_win_md5']; ?>" />
+          <label for="dl_win_md5">MD5: </label><input id="dl_win_md5" name="dl_win_md5" type="text" class="textbox" size="33" value="<?php echo @$WARZONE['currentversion']['dl_win_md5']; ?>" /><br />
+          <label for="dl_win_size">For </label><input id="dl_win_version" name="dl_win_version" type="text" class="textbox" size="20" value="<?php echo @$WARZONE['currentversion']['dl_win_version']; ?>" />
         </p>
         <h2>Mac OS X - high quality videos</h2>
         <p>
@@ -165,7 +166,8 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
         <p>
           <label for="dl_win">URL: </label><input id="dlbeta_win" name="dlbeta_win" type="text" class="textbox" size="70" value="<?php echo @$WARZONE['betaversion']['dl_win']; ?>" /><br />
           <label for="dl_win_size">Size: </label><input id="dlbeta_win_size" name="dlbeta_win_size" type="text" class="textbox" size="10" value="<?php echo @$WARZONE['betaversion']['dl_win_size']; ?>" />
-          <label for="dl_win_md5">MD5: </label><input id="dlbeta_win_md5" name="dlbeta_win_md5" type="text" class="textbox" size="33" value="<?php echo @$WARZONE['betaversion']['dl_win_md5']; ?>" />
+          <label for="dl_win_md5">MD5: </label><input id="dlbeta_win_md5" name="dlbeta_win_md5" type="text" class="textbox" size="33" value="<?php echo @$WARZONE['betaversion']['dl_win_md5']; ?>" /><br />
+          <label for="dl_win_size">For </label><input id="dlbeta_win_version" name="dlbeta_win_version" type="text" class="textbox" size="20" value="<?php echo @$WARZONE['betaversion']['dl_win_version']; ?>" />
         </p>
         <h2>Mac OS X - high quality videos</h2>
         <p>
@@ -216,13 +218,13 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
 	<hgroup>
 		<h1>Latest stable version &ndash; <?php echo @$WARZONE['currentversion']['name']; ?></h1>
 <?php wz_frag_top_notes(); ?>
-	<hgroup>
+	</hgroup>
 
       <div class="content-box-margin" id="download-win">
         <h2>Windows</h2>
 <?php wz_frag_win_version_stable(); ?>
         <div class="downloadbtn">
-          <a href="<?php echo @$WARZONE['currentversion']['dl_win'] ?>"><em>Download</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name'] ?> <small>for Windows XP+ <sub><?php echo @$WARZONE['currentversion']['dl_win_size'] ?></sub></small></a>
+          <a href="<?php echo @$WARZONE['currentversion']['dl_win'] ?>"><em>Download</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name'] ?> <small>for <?php echo @$WARZONE['currentversion']['dl_win_version']; ?> <sub><?php echo @$WARZONE['currentversion']['dl_win_size'] ?></sub></small></a>
           <small><?php echo @$WARZONE['currentversion']['dl_win_md5']; ?></small>
         </div>
         <div style="clear:both"></div>
@@ -238,7 +240,7 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
           For <?php echo @$WARZONE['currentversion']['dl_mac_version']; ?>
         </p>
         <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['currentversion']['dl_mac'] ?>"><em>Download High Quality</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name']; ?> <small>with high quality videos</small> <small>for <?php echo @$WARZONE['currentversion']['dl_mac_version']; ?><sub><?php echo @$WARZONE['currentversion']['dl_mac_size']; ?></sub></small></a>
+          <a href="<?php echo @$WARZONE['currentversion']['dl_mac'] ?>"><em>Download High Quality</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name']; ?> <small>with slightly higher quality videos</small> <small>for <?php echo @$WARZONE['currentversion']['dl_mac_version']; ?><sub><?php echo @$WARZONE['currentversion']['dl_mac_size']; ?></sub></small></a>
         </div>
         <div class="downloadbtn" style="float:left;">
           <a href="<?php echo @$WARZONE['currentversion']['dl_mac_lq'] ?>" class="betaversion"><em>Download Standard</em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['currentversion']['name']; ?> <small>with standard quality videos</small> <small>for <?php echo @$WARZONE['currentversion']['dl_mac_version']; ?> <sub><?php echo @$WARZONE['currentversion']['dl_mac_lq_size']; ?></sub></small></a>
@@ -351,7 +353,7 @@ if (@$WARZONE['betaversion']['name'])
         <h2>Windows</h2>
 <?php wz_frag_win_version_beta(); ?>
         <div class="downloadbtn">
-          <a href="<?php echo @$WARZONE['betaversion']['dl_win'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name'] ?> <small>for Windows XP+ <sub><?php echo @$WARZONE['betaversion']['dl_win_size'] ?></sub></small></a>
+          <a href="<?php echo @$WARZONE['betaversion']['dl_win'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name'] ?> <small>for <?php echo @$WARZONE['betaversion']['dl_win_version']; ?> <sub><?php echo @$WARZONE['betaversion']['dl_win_size'] ?></sub></small></a>
           <small><?php echo @$WARZONE['betaversion']['dl_win_md5']; ?></small>
         </div>
         <div style="clear:both"></div>
@@ -366,7 +368,7 @@ if (@$WARZONE['betaversion']['name'])
 	if (@$WARZONE['betaversion']['dl_mac'] != "") {
 ?>
         <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['betaversion']['dl_mac'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name']; ?> <small>with high quality videos</small> <small>for <?php echo @$WARZONE['betaversion']['dl_mac_version']; ?><sub><?php echo @$WARZONE['betaversion']['dl_mac_size']; ?></sub></small></a>
+          <a href="<?php echo @$WARZONE['betaversion']['dl_mac'] ?>" class="betaversion"><em>Test the <?php echo $WARZONE['betaversion']['versiontype'] ?></em> <strong>Warzone 2100</strong> <?php echo @$WARZONE['betaversion']['name']; ?> <small>with slightly higher quality videos</small> <small>for <?php echo @$WARZONE['betaversion']['dl_mac_version']; ?><sub><?php echo @$WARZONE['betaversion']['dl_mac_size']; ?></sub></small></a>
         </div>
 <?php
 	}

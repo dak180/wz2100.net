@@ -136,7 +136,7 @@ function wz_frag_vid_buttons()
 {
 ?>
         <div class="downloadbtn" style="float:left;">
-          <a href="<?php echo @$WARZONE['videos']['hq'] ?>" class="betaversion"><em>Download videos</em> <strong>high quality</strong> <sub><?php echo @$WARZONE['videos']['hq_size']; ?></sub></a>
+          <a href="<?php echo @$WARZONE['videos']['hq'] ?>" class="betaversion"><em>Download videos</em> <strong>slightly higher quality</strong> <sub><?php echo @$WARZONE['videos']['hq_size']; ?></sub></a>
         </div>
         <div class="downloadbtn" style="float:left;">
           <a href="<?php echo @$WARZONE['videos']['std'] ?>" class="betaversion"><em>Download videos</em> <strong>standard quality</strong> <sub><?php echo @$WARZONE['videos']['std_size']; ?></sub></a>
