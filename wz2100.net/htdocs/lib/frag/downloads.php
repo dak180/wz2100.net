@@ -6,6 +6,7 @@
 <?php
 	// Variables
 $wz_frag_mjrver_stable = "2.3";
+$wz_frag_first_listing = "beta"; // beta or stable
 ?>
 
 

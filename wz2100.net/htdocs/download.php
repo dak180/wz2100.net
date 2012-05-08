@@ -215,6 +215,11 @@ var isadmin = <?php echo $isadmin?'true':'false'; ?>;
 <?php
   }
 ?>
+
+<?php
+function wz_dwn_stable()
+{
+?>
 	<hgroup>
 		<h1>Latest stable version &ndash; <?php echo @$WARZONE['currentversion']['name']; ?></h1>
 <?php wz_frag_top_notes(); ?>
@@ -339,14 +344,16 @@ document.write('<div class="content-box-margin" id="download-displayall"><p><a h
 
 //-->
 </script>
-
-<?php wz_frag_systemrecs_stable(); ?>
-
 <?php
-if (@$WARZONE['betaversion']['name'])
-{
+  }
 ?>
 
+<?php
+function wz_dwn_beta()
+{
+	if (@$WARZONE['betaversion']['name'])
+	{
+?>
       <h1 id="testing">Latest <?php echo $WARZONE['betaversion']['versiontype'] ?> version &ndash; <?php echo @$WARZONE['betaversion']['name']; ?></h1>
 
       <div class="content-box-margin" id="betadownload-win">
@@ -421,8 +428,25 @@ document.write('<div class="content-box-margin" id="betadownload-displayall"><p>
 
 //-->
 </script>
+<?php
+	}
+}
+?>
+
 
 <?php
+if ($wz_frag_first_listing == "beta") {
+	wz_dwn_beta();
+	wz_frag_systemrecs_stable();
+	wz_dwn_stable();
+} elseif ($wz_frag_first_listing == "stable") {
+	wz_dwn_stable();
+	wz_frag_systemrecs_stable();
+	wz_dwn_beta();
+} else {
+	wz_dwn_stable();
+	wz_frag_systemrecs_stable();
+	wz_dwn_beta();
 }
 ?>
 
